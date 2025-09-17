@@ -79,7 +79,7 @@ This script explains Sections F & G from the MATLAB OFDM project:
 - Section G: Creates a special preamble, simulates signal rotation and delay, detects preamble with cross-correlation, and estimates rotation rate.
 """
 
-# %% === 1️⃣ Section F: Equalizer & Data Extraction ===
+# %% === 6️⃣ Section F: Equalizer & Data Extraction ===
 """
 ### Section F: Equalization & Data Extraction
 
@@ -93,7 +93,7 @@ This script explains Sections F & G from the MATLAB OFDM project:
 **DSP Concepts:** Cyclic prefix removal, FFT-based equalization, data carrier extraction, constellation visualization.
 """
 
-# %% === 2️⃣ Section G: Special Preamble & Rotation Estimation ===
+# %% === 7️⃣ Section G: Special Preamble & Rotation Estimation ===
 """
 ### Section G: Special Preamble & Rotation Estimation
 
