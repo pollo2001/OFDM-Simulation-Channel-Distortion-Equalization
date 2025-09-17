@@ -1,3 +1,4 @@
+"""
 # 🌐 OFDM Simulation, Channel Distortion & Equalization
 
 This script explains the MATLAB OFDM pipeline, including:
@@ -69,16 +70,43 @@ This script explains the MATLAB OFDM pipeline, including:
 **DSP Concepts:** Channel estimation, frequency-domain equalization.
 """
 
-# %% === 6️⃣ Equalization & Constellation Analysis ===
 """
-### Section F: Equalization & Constellation Visualization
+# 🌟 OFDM Equalization & Preamble Detection
 
-- 🎯 Purpose: Compensate channel effects and recover transmitted symbols.
+This script explains Sections F & G from the MATLAB OFDM project:
+
+- Section F: Extracts data portion after preamble, removes cyclic prefix, performs FFT and equalization, and visualizes constellations.
+- Section G: Creates a special preamble, simulates signal rotation and delay, detects preamble with cross-correlation, and estimates rotation rate.
+"""
+
+# %% === 1️⃣ Section F: Equalizer & Data Extraction ===
+"""
+### Section F: Equalization & Data Extraction
+
+- 🎯 Purpose: Extract data symbols after preamble, remove cyclic prefix, apply FFT, and equalize using estimated channel response.
 - 🔧 Code Choices:
-    - Divide received FFT bins by channel estimate.
-    - Plot real, imaginary, and 2D constellations pre- and post-equalization.
+    - `data_start` identifies the first sample of actual data after preambles.
+    - Reshape received samples into symbols, removing the cyclic prefix.
+    - FFT of each symbol is divided by preamble-based channel estimate `H_est`.
+    - Only active data carriers are extracted and plotted.
 
-**DSP Concepts:** Frequency-domain equalization, constellation analysis, symbol recovery.
+**DSP Concepts:** Cyclic prefix removal, FFT-based equalization, data carrier extraction, constellation visualization.
+"""
+
+# %% === 2️⃣ Section G: Special Preamble & Rotation Estimation ===
+"""
+### Section G: Special Preamble & Rotation Estimation
+
+- 🎯 Purpose: Create known frequency-domain preamble, simulate signal rotation and noise, detect preamble, and estimate phase rotation.
+- 🔧 Code Choices:
+    - `special_bins` defines only certain active subcarriers in preamble.
+    - IFFT generates time-domain preamble.
+    - Test signal concatenates zero-padding, preamble, and OFDM symbols; noise and rotation are added.
+    - Cross-correlation between received signal and preamble identifies start of preamble.
+    - Phase rotation is estimated via recursive smoothing of angles.
+    - Visualizations show cross-correlation, auto-correlation, ratio, and estimated rotation rate.
+
+**DSP Concepts:** Frequency-domain preamble, cross-correlation detection, phase rotation estimation, preamble synchronization.
 """
 
 # %% === Notes 📝
@@ -87,3 +115,5 @@ This script explains the MATLAB OFDM pipeline, including:
 - FFT segments visualize frequency bins of each OFDM symbol.
 - Convolution simulates channel distortion; equalization corrects it.
 - Constellation plots validate symbol recovery visually.
+
+"""
