@@ -54,7 +54,7 @@ This script simulates an OFDM (Orthogonal Frequency-Division Multiplexing) commu
 ### Usage
 
 1.  Open the project in MATLAB.
-2.  Run the main script (e.g., `ofdm_simulation.m`).
+2.  Run the main script (e.g., `FINAL161.m`).
 3.  Observe the generated plots for constellations and channel response.
 
 ---
